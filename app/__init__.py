@@ -21,6 +21,8 @@ bootstrap = Bootstrap()
 moment = Moment()
 babel = Babel()
 
+from app import models, cli
+
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -79,6 +81,3 @@ def create_app(config_class=Config):
 @babel.localeselector
 def get_locale():
     return request.accept_languages.best_match(current_app.config['LANGUAGES'])
-
-
-from app import models
